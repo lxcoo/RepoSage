@@ -50,18 +50,32 @@ def hello(name):
     
     def test_detect_high_complexity(self):
         code = '''
-def complex_func(x):
-    if x > 0:
+def complex_func(x, y, z):
+    if x > 0 and y > 0 and z > 0:
         if x > 10:
-            if x > 100:
-                return "huge"
+            if y > 100:
+                for i in range(10):
+                    if i % 2 == 0:
+                        while z > 0:
+                            z -= 1
+                            if z == 5:
+                                break
+                        return "huge"
             return "big"
         return "medium"
     elif x < 0:
-        if x < -10:
-            return "very negative"
+        if y < -10:
+            try:
+                return "very negative"
+            except Exception:
+                pass
         return "negative"
+    elif x == 0:
+        with open("test") as f:
+            data = f.read()
+        return data
     else:
+        assert x is not None
         return "zero"
 '''
         with tempfile.NamedTemporaryFile(mode='w', suffix='.py', delete=False, encoding='utf-8') as f:
