@@ -41,7 +41,7 @@ RepoSage employs a **multi-agent collaboration pattern** where specialized agent
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/repo-sage.git
+git clone https://github.com/lxcoo/RepoSage.git
 cd repo-sage
 
 # Install dependencies
